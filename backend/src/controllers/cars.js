@@ -33,7 +33,7 @@ exports.createCar = async (req, res) => {
   try {
     const car = new Car(req.body);
     await car.save();
-    delete car.__v;
+    car.__v = undefined;
     res.status(201).json({ message: "Car created", car });
   } catch (error) {
     console.error(error);

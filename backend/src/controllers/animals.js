@@ -33,7 +33,7 @@ exports.createAnimal = async (req, res) => {
   try {
     const animal = new Animal(req.body);
     await animal.save();
-    delete animal.__v;
+    animal.__v = undefined;
     res.status(201).json({ message: "Animal created", animal });
   } catch (error) {
     console.error(error);
