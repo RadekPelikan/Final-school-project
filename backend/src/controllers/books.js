@@ -11,4 +11,3 @@ exports.updateBook = (req, res) => {};
 exports.deleteBook = (req, res) => {};
 
 exports.deleteAllBooks = (req, res) => {};
-

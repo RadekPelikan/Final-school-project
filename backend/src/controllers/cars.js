@@ -1,13 +1,13 @@
 const Car = require("../models/car");
 
-exports.getAllCars = (req, res) => {}
+exports.getAllCars = (req, res) => {};
 
-exports.getCarById = (req, res) => {}
+exports.getCarById = (req, res) => {};
 
-exports.createCar = (req, res) => {}
+exports.createCar = (req, res) => {};
 
-exports.updateCar = (req, res) => {}
+exports.updateCar = (req, res) => {};
 
-exports.deleteCar = (req, res) => {}
+exports.deleteCar = (req, res) => {};
 
-exports.deleteAllCars = (req, res) => {}
+exports.deleteAllCars = (req, res) => {};

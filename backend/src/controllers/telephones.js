@@ -1,13 +1,13 @@
-const telephone = require('../models/telephone');
+const telephone = require("../models/telephone");
 
-exports.getAllTelephones = (req, res) => {}
+exports.getAllTelephones = (req, res) => {};
 
-exports.getTelephoneById = (req, res) => {}
+exports.getTelephoneById = (req, res) => {};
 
-exports.createTelephone = (req, res) => {}
+exports.createTelephone = (req, res) => {};
 
-exports.updateTelephone = (req, res) => {}
+exports.updateTelephone = (req, res) => {};
 
-exports.deleteTelephone = (req, res) => {}
+exports.deleteTelephone = (req, res) => {};
 
-exports.deleteAllTelephones = (req, res) => {}
+exports.deleteAllTelephones = (req, res) => {};
