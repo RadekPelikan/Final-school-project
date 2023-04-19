@@ -1,6 +1,12 @@
 const Animal = require("../models/animal");
 const { ObjectId } = require("mongoose").Types;
 
+
+/**
+ * Získá všechny záznamy zvířat z DB
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getAllAnimals = async (req, res) => {
   try {
     const animals = await Animal.find().select("-__v");
@@ -14,13 +20,22 @@ exports.getAllAnimals = async (req, res) => {
   }
 };
 
+/**
+ * Získá klíče, které jsou potřeba pro dynamické vytváření formulářů
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getInfo = (req, res) => {
   const keys = Object.keys(Animal.schema.paths);
   keys.splice(keys.length - 3)
   res.status(200).json({ message: "Info", keys });
 };
 
-
+/**
+ * Získá zvíře podle ID (identifikační číslo)
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getAnimalById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -36,6 +51,11 @@ exports.getAnimalById = async (req, res) => {
   }
 };
 
+/**
+ * Vytvoří nový záznam zvířete v DB
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.createAnimal = async (req, res) => {
   try {
     const animal = new Animal(req.body);
@@ -50,9 +70,16 @@ exports.createAnimal = async (req, res) => {
 
 exports.updateAnimal = (req, res) => {};
 
+/**
+ * Smaže všechny záznamy zvířat z DB
+ * 
+ * Je potřeba předat parametr "iamonehunderedpercentsure" s hodnotou "true"
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.deleteAllAnimals = async (req, res) => {
   try {
-    if (!req.query.iamonehunderedpercentsure)
+    if (!req.query.iamonehunderedpercentsure === "true")
       return res.status(403).json({ message: "You are not sure enough" });
 
     const count = await Animal.countDocuments();
@@ -66,6 +93,11 @@ exports.deleteAllAnimals = async (req, res) => {
   }
 };
 
+/**
+ * Smaže záznam zvířete podle ID (identifikační číslo)
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.deleteAnimal = async (req, res) => {
   try {
     const { id } = req.params;

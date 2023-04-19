@@ -4,6 +4,11 @@ type ICotentsProps = {
   children: React.ReactNode;
 };
 
+/**
+ * Wrapper pro obsah stránky
+ * @param props ICotentsProps
+ * @returns JSX.Element
+ */
 const Contents = (props: ICotentsProps) => {
   return (
     <div className="flex-grow">

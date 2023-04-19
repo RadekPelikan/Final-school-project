@@ -9,6 +9,14 @@ import { Ianimal } from "./interfaces/all.type";
 
 export const BACKEND_URL = "http://localhost:3000";
 
+/**
+ * @description
+ * Překládání kategorií na endpointy
+ * 
+ * endpoint: {
+ * category: endpoint (string)
+ * }
+ */
 export const ENDPOINTS = {
   animal: "step",
   car: "srac",
@@ -20,7 +28,16 @@ export const ENDPOINTS = {
   books: "skooby",
 }
 
-
+/**
+ * @description
+ * Dynamické vytváření navbaru
+ * 
+ * navbarItem: {
+ * type,
+ * name,
+ * to
+ * }
+ */
 const NAVBAR_LINKS = [
   { type: "brand", name: "Home", to: "/" },
   { type: "link", name: "Animals", to: "/animals"},
@@ -29,6 +46,10 @@ const NAVBAR_LINKS = [
   { type: "link", name: "Books", to: "/books" },
 ];
 
+/**
+ * Samotná aplikace
+ * @returns JSX.Element
+ */
 function App() {
   return (
     <>  

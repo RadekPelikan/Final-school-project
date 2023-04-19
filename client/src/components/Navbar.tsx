@@ -11,6 +11,11 @@ type route = {
   to: string;
 };
 
+/**
+ * Navbar pro navigaci mezi stránkami
+ * @param props INavbarProps
+ * @returns JSX.Element
+ */
 const Navbar = (props: INavbarProps) => {
   return (
     <nav className=" bg-sky-600">

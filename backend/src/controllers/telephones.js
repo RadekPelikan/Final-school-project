@@ -1,6 +1,12 @@
 const Telephone = require("../models/telephone");
 const { ObjectId } = require("mongoose").Types;
 
+
+/**
+ * Získá všechny záznamy telefonů z DB
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getAllTelephones = async (req, res) => {
   try {
     const telephones = await Telephone.find().select("-__v");
@@ -19,12 +25,22 @@ exports.getAllTelephones = async (req, res) => {
   }
 };
 
+/**
+ * Získá klíče, které jsou potřeba pro dynamické vytváření formulářů
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getInfo = (req, res) => {
   const keys = Object.keys(Telephone.schema.paths);
   keys.splice(keys.length - 3)
   res.status(200).json({ message: "Info", keys });
 };
 
+/**
+ * Získá telefón podle ID (identifikační číslo)
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getTelephoneById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -41,6 +57,11 @@ exports.getTelephoneById = async (req, res) => {
   }
 };
 
+/**
+ * Vytvoří nový záznam telefonu v DB
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.createTelephone = async (req, res) => {
   try {
     const telephone = new Telephone(req.body);
@@ -55,6 +76,13 @@ exports.createTelephone = async (req, res) => {
 
 exports.updateTelephone = (req, res) => {};
 
+/**
+ * Smaže všechny záznamy telefonů z DB
+ * 
+ * Je potřeba předat parametr "iamonehunderedpercentsure" s hodnotou "true"
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.deleteAllTelephones = async (req, res) => {
   try {
     if (!req.query.iamonehunderedpercentsure)
@@ -70,6 +98,11 @@ exports.deleteAllTelephones = async (req, res) => {
   }
 };
 
+/**
+ * Smaže záznam telefonu podle ID (identifikační číslo)
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.deleteTelephone = async (req, res) => {
   try {
     const { id } = req.params;

@@ -3,6 +3,12 @@ const Car = require("../models/car");
 const Telephone = require("../models/telephone");
 const Book = require("../models/book");
 
+/**
+ * Vytváří nové pole, které je stejné jako původní, ale všechny objekty mají nový atribut "category"
+ * @param {*} arr pole záznamů z DB
+ * @param {*} category kategorie, která se přidá do každého záznamu
+ * @returns Pole s novým atributem "category"
+ */
 const mutate = (arr, category) => {
   return arr.map((item) => {
     item = item.toObject();
@@ -11,6 +17,11 @@ const mutate = (arr, category) => {
   });
 };
 
+/**
+ * Získá všechny záznamy z DB a vrátí je v poli seřazeném podle data vytvoření
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getAllSorted = async (req, res) => {
   try {
     let animals = await Animal.find().select("-__v");
@@ -38,6 +49,11 @@ exports.getAllSorted = async (req, res) => {
   }
 };
 
+/**
+ * Získá všechny záznamy z DB a je v různých polích podle kategorie
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getAllCategories = async (req, res) => {
   try {
     let animals = await Animal.find().select("-__v");

@@ -10,6 +10,11 @@ type Iui = {
 
 type IitemCardProps = Ianimal | Icar | Itelephone | Ibook;
 
+/**
+ * Kartička položky pro zobrazování dat
+ * @param props any
+ * @returns JSX.Element
+ */
 const ItemCard = (props: any) => {
   const [ui, setUi] = useState<Iui>({
     deleteVisible: false,

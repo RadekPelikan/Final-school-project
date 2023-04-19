@@ -11,12 +11,23 @@ type Iui = {
   };
 };
 
+/**
+ * Domovská stránka, která obsahuje všechny záznamy seřazené podle data vytvoření
+ * @returns JSX.Element
+ */
 const Homepage = () => {
   const [ui, setUi] = useState<Iui>({
     reponse: { status: 0, message: "loading" },
   });
   const [data, setData] = useState<IallSorted>();
 
+
+  /**
+   * Získávání všech položek, které budou seřazeny podle data vytvoření
+   * 
+   * URL: /all
+   * @returns undefined
+   */
   const fetchData = async () => {
     const res = await fetch(`${BACKEND_URL}/all`);
     const data = await res.json();

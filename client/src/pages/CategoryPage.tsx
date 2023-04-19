@@ -11,6 +11,10 @@ type Iui = {
   };
 };
 
+/**
+ * Dynamická stránka, která získá všechny položky z backendu dle kategorie
+ * @returns JSX.Element
+ */
 const CategoryPage = () => {
   const { category } = useParams();
   const [data, setData] = useState<any>();
@@ -28,6 +32,12 @@ const CategoryPage = () => {
     );
   }
 
+  /**
+   * Získávání položek z backendu dle kategorie
+   * 
+   * URL: /<kategorie>
+   * @returns undefined
+   */
   const fetchData = async () => {
     const res = await fetch(`${BACKEND_URL}/${ENDPOINTS[category as string]}`);
     const data = await res.json();

@@ -1,6 +1,11 @@
 const Car = require("../models/car");
 const { ObjectId } = require("mongoose").Types;
 
+/**
+ * Získá všechny záznamy aut z DB
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getAllCars = async (req, res) => {
   try {
     const cars = await Car.find().select("-__v");
@@ -14,12 +19,22 @@ exports.getAllCars = async (req, res) => {
   }
 };
 
+/**
+ * Získá klíče, které jsou potřeba pro dynamické vytváření formulářů
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getInfo = (req, res) => {
   const keys = Object.keys(Car.schema.paths);
   keys.splice(keys.length - 3)
   res.status(200).json({ message: "Info", keys });
 };
 
+/**
+ * Získá auto podle ID (identifikační číslo)
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.getCarById = async (req, res) => {
   try {
     const { id } = req.params;
@@ -35,6 +50,11 @@ exports.getCarById = async (req, res) => {
   }
 };
 
+/**
+ * Vytvoří nový záznam auta v DB
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.createCar = async (req, res) => {
   try {
     const car = new Car(req.body);
@@ -49,9 +69,16 @@ exports.createCar = async (req, res) => {
 
 exports.updateCar = (req, res) => {};
 
+/**
+ * Smaže všechny záznamy aut z DB
+ * 
+ * Je potřeba předat parametr "iamonehunderedpercentsure" s hodnotou "true"
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.deleteAllCars =async  (req, res) => {
   try {
-    if (!req.query.iamonehunderedpercentsure)
+    if (!req.query.iamonehunderedpercentsure === "true")
       return res.status(403).json({ message: "You are not sure enough" });
 
     const count = await Car.countDocuments();
@@ -65,6 +92,11 @@ exports.deleteAllCars =async  (req, res) => {
   }
 };
 
+/**
+ * Smaže záznam auta podle ID (identifikační číslo)
+ * @param {*} req Express request
+ * @param {*} res Express response
+ */
 exports.deleteCar = async(req, res) => {
   try {
     const { id } = req.params;

@@ -11,6 +11,10 @@ type Iui = {
   };
 };
 
+/**
+ * Dynamická stránka, která vytvoří formulář dle kategorie
+ * @returns 
+ */
 const NewItemwPage = () => {
   const inputRefs = useRef<any[]>([]);
   const navigate = useNavigate();
@@ -30,6 +34,14 @@ const NewItemwPage = () => {
     );
   }
 
+  
+
+  /**
+   * Získávání klíčových sloves z backendu dle kategorie, podle kterých se pak dynamicky vytvoří formulář
+   * 
+   * URL: /<kategorie>/info
+   * @returns undefined
+   */
   const fetchInfo = async () => {
     const res = await fetch(`${BACKEND_URL}/${ENDPOINTS[category]}/info`);
     const data = await res.json();
