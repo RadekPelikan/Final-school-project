@@ -37,23 +37,23 @@ const ItemCard = (props: any) => {
     await fetch(`${BACKEND_URL}/${ENDPOINTS[category]}/${_id}`, {
       method: "DELETE",
     });
-    setUi({...ui, cardVisible: false});
+    setUi({ ...ui, cardVisible: false });
   };
 
   if (!ui.cardVisible) return null;
 
   return (
     <div
-      className="grid gap-2 px-4 py-4 text-white rounded-lg bg-slate-800"
+      className="grid gap-2 px-1 py-4 text-white rounded-lg sm:px-4 bg-slate-800"
       onMouseEnter={() => setUi({ ...ui, deleteVisible: true })}
-      onMouseLeave={() => setUi({ ...ui, deleteVisible: false})}
+      onMouseLeave={() => setUi({ ...ui, deleteVisible: false })}
     >
       <div className="grid items-baseline justify-between grid-cols-3 px-3">
         <span className="text-gray-400">{category}</span>
         <h3 className="text-xl font-bold text-center text-white">{title}</h3>
         <GiCancel
-          className={`text-slate-300 ml-auto h-full hover:text-red-600 ${
-            ui.deleteVisible ? "" : "hidden"
+          className={`sm:text-slate-300 ml-auto h-full text-red-600  hover:text-red-600 ${
+            ui.deleteVisible ? "" : "sm:hidden"
           }`}
           size={25}
           onClick={handleDelete}

@@ -34,8 +34,6 @@ const NewItemwPage = () => {
     );
   }
 
-  
-
   /**
    * Získávání klíčových sloves z backendu dle kategorie, podle kterých se pak dynamicky vytvoří formulář
    * 

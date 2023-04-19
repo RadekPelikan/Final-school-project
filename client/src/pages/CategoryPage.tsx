@@ -34,7 +34,7 @@ const CategoryPage = () => {
 
   /**
    * Získávání položek z backendu dle kategorie
-   * 
+   *
    * URL: /<kategorie>
    * @returns undefined
    */
@@ -79,17 +79,22 @@ const CategoryPage = () => {
 
   return (
     <Contents>
-      <div className="flex justify-between">
-        <h1 className="text-4xl font-bold text-white">Category: {category}</h1>
-        <Link to="new" className="grid px-3 py-1 text-sm font-semibold bg-yellow-300 rounded place-items-center hover:brightness-90">
+      <div className="flex flex-col justify-between gap-4 sm:flex-row">
+        <h1 className="text-4xl font-bold text-center text-white sm:text-left">
+          Category: {category}
+        </h1>
+        <Link
+          to="new"
+          className="grid px-3 py-1 text-sm font-semibold bg-yellow-300 rounded place-items-center hover:brightness-90"
+        >
           <span>Create new</span>
         </Link>
       </div>
 
-      <h2 className="my-8 text-2xl font-bold text-white text-white-5">
+      <h2 className="my-2 text-2xl font-bold text-center text-white sm:text-left sm:my-8 text-white-5">
         All recent records
       </h2>
-      <div className="grid gap-4 grid-auto-fit-xl">
+      <div className="grid gap-4 sm:grid-auto-fit-xl">
         {data.map((item: any, index: number) => (
           <ItemCard key={index} {...item} category={category} />
         ))}

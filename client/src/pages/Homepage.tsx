@@ -68,10 +68,10 @@ const Homepage = () => {
 
   return (
     <Contents>
-      <h1 className="text-4xl font-bold text-white">Homepage</h1>
+      <h1 className="text-4xl font-bold text-center text-white sm:text-left">Homepage</h1>
 
-      <h2 className="my-8 text-2xl font-bold text-white text-white-5">All recent records</h2>
-      <div className="grid gap-4 grid-auto-fit-xl">
+      <h2 className="my-8 text-2xl font-bold text-center text-white sm:text-left text-white-5">All recent records</h2>
+      <div className="grid gap-4 sm:grid-auto-fit-xl">
         {data?.all.map((item, index) => (
           <ItemCard {...item} key={index} />
         ))}
