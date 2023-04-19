@@ -70,12 +70,9 @@ exports.deleteTelephone = async (req, res) => {
     if (!ObjectId.isValid(id))
       return res.status(404).json({ message: "No telephone found" });
 
-    Telephone.findByIdAndDelete(id, (err, telephone) => {
-      if (err) return res.status(500).json({ message: "Something went wrong" });
-      if (!telephone)
-        return res.status(404).json({ message: "No telephone found" });
+      const telephone = await Telephone.findByIdAndDelete(id).select("-__v");
+      if (!telephone) return res.status(404).json({ message: "No telephone found" });
       res.status(200).json({ message: "Telephone deleted", telephone });
-    });
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Something went wrong" });
