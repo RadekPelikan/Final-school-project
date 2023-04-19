@@ -3,6 +3,7 @@ const router = express.Router();
 const carsController = require("../controllers/cars");
 
 router.get("/", carsController.getAllCars);
+router.get("/info", carsController.getInfo)
 router.get("/:id", carsController.getCarById);
 
 router.post("/", carsController.createCar);

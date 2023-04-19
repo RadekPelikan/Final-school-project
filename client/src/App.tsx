@@ -1,8 +1,11 @@
 import { useState } from "react";
 import { Routes, Route } from "react-router-dom";
-import { HomePage } from "./pages";
+import { keys } from 'ts-transformer-keys'
+
+import { HomePage, CategoryPage, NewItemwPage } from "./pages";
 import Navbar from "./components/Navbar";
 import Layout from "./components/Layout";
+import { Ianimal } from "./interfaces/all.type";
 
 export const BACKEND_URL = "http://localhost:3000";
 
@@ -11,7 +14,12 @@ export const ENDPOINTS = {
   car: "srac",
   telephone: "senohp",
   book: "skooby",
+  animals: "step",
+  cars: "srac",
+  telephones: "senohp",
+  books: "skooby",
 }
+
 
 const NAVBAR_LINKS = [
   { type: "brand", name: "Home", to: "/" },
@@ -28,6 +36,8 @@ function App() {
         <Navbar items={NAVBAR_LINKS} />
         <Routes>
           <Route index element={<HomePage />} />
+          <Route path="/:category" element={<CategoryPage />} />
+          <Route path="/:category/new" element={<NewItemwPage />} />
         </Routes>
       </Layout>
     </>

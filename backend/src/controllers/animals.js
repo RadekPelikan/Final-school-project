@@ -14,6 +14,13 @@ exports.getAllAnimals = async (req, res) => {
   }
 };
 
+exports.getInfo = (req, res) => {
+  const keys = Object.keys(Animal.schema.paths);
+  keys.splice(keys.length - 3)
+  res.status(200).json({ message: "Info", keys });
+};
+
+
 exports.getAnimalById = async (req, res) => {
   try {
     const { id } = req.params;

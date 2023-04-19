@@ -3,6 +3,7 @@ const router = express.Router();
 const telephonesController = require("../controllers/telephones");
 
 router.get("/", telephonesController.getAllTelephones);
+router.get("/info", telephonesController.getInfo)
 router.get("/:id", telephonesController.getTelephoneById);
 
 router.post("/", telephonesController.createTelephone);

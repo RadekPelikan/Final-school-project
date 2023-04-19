@@ -3,6 +3,7 @@ const router = express.Router();
 const animalsController = require("../controllers/animals");
 
 router.get("/", animalsController.getAllAnimals);
+router.get("/info", animalsController.getInfo)
 router.get("/:id", animalsController.getAnimalById);
 
 router.post("/", animalsController.createAnimal);
