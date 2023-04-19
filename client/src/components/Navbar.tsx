@@ -22,19 +22,19 @@ const Navbar = (props: INavbarProps) => {
 
   return (
     <nav className=" bg-sky-600">
-      <ul className="container flex flex-col justify-between gap-1 my-2 sm:flex-row sm:my-0">
+      <ul className="container flex flex-col justify-between gap-1 my-2 md:flex-row md:my-0">
         {props.items.map((item, index) => (
           <li key={index}>
             {item.type === "brand" && (
               <>
                 <Link
-                  className="rounded sm:rounded-none block text-center sm:text-left px-10 py-2 text-xl font-bold text-white hover:bg-sky-700  md:mr-[5rem] lg:mr-[15rem]"
+                  className="rounded md:rounded-none block text-center md:text-left px-10 py-2 text-xl font-bold text-white hover:bg-sky-700  md:mr-[5rem] lg:mr-[15rem]"
                   to={item.to}
                 >
                   {item.name}
                 </Link>
                 <button
-                  className="grid gap-[2px] py-2 w-full sm:hidden hover:brightness-75 relative"
+                  className="grid gap-[2px] py-2 w-full md:hidden hover:brightness-75 relative"
                   onClick={() => setOpen(!open)}
                 >
                   <div className="h-0.5 bg-white"></div>
@@ -69,7 +69,7 @@ const Navbar = (props: INavbarProps) => {
 
             {item.type === "link" && (
               <Link
-                className={`mx-8 sm:mx-0 rounded sm:rounded-none grid h-full min-w-[8rem] place-items-center hover:bg-sky-700 text-white ${open ? "" : "hidden"} sm:grid`}
+                className={`mx-8 md:mx-0 rounded md:rounded-none grid h-full min-w-[8rem] place-items-center hover:bg-sky-700 text-white ${open ? "" : "hidden"} md:grid`}
                 to={item.to}
               >
                 <span>{item.name}</span>

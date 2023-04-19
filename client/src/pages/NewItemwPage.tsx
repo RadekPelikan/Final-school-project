@@ -13,7 +13,7 @@ type Iui = {
 
 /**
  * Dynamická stránka, která vytvoří formulář dle kategorie
- * @returns 
+ * @returns
  */
 const NewItemwPage = () => {
   const inputRefs = useRef<any[]>([]);
@@ -36,7 +36,7 @@ const NewItemwPage = () => {
 
   /**
    * Získávání klíčových sloves z backendu dle kategorie, podle kterých se pak dynamicky vytvoří formulář
-   * 
+   *
    * URL: /<kategorie>/info
    * @returns undefined
    */
@@ -95,7 +95,7 @@ const NewItemwPage = () => {
 
   return (
     <Contents>
-      <h1 className="text-4xl font-bold text-white">
+      <h1 className="text-4xl font-bold text-center text-white md:text-left">
         New{" "}
         {category?.endsWith("s")
           ? category.substring(0, category.length - 1)
