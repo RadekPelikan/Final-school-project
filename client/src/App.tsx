@@ -1,35 +1,37 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { useState } from "react";
+import { Routes, Route } from "react-router-dom";
+import { HomePage } from "./pages";
+import Navbar from "./components/Navbar";
+import Layout from "./components/Layout";
 
-function App() {
-  const [count, setCount] = useState(0)
+export const BACKEND_URL = "http://localhost:3000";
 
-  return (
-    <div className="App">
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://reactjs.org" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </div>
-  )
+export const ENDPOINTS = {
+  animal: "step",
+  car: "srac",
+  telephone: "senohp",
+  book: "skooby",
 }
 
-export default App
+const NAVBAR_LINKS = [
+  { type: "brand", name: "Home", to: "/" },
+  { type: "link", name: "Animals", to: "/animals"},
+  { type: "link", name: "Cars", to: "/cars" },
+  { type: "link", name: "Telephones", to: "/telephones" },
+  { type: "link", name: "Books", to: "/books" },
+];
+
+function App() {
+  return (
+    <>  
+      <Layout>
+        <Navbar items={NAVBAR_LINKS} />
+        <Routes>
+          <Route index element={<HomePage />} />
+        </Routes>
+      </Layout>
+    </>
+  );
+}
+
+export default App;
