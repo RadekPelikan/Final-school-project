@@ -1,0 +1,23 @@
+{
+  "name": "MaturitniPrace - Backend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "nodemon ./src",
+    "start": "node ./src"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "jsdoc": "^4.0.2",
+    "mongoose": "^7.0.4",
+    "morgan": "^1.10.0",
+    "nodemon": "^2.0.22",
+    "path": "^0.12.7"
+  }
+}
