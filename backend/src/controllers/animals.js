@@ -1,4 +1,4 @@
-
+const Animal = require("../models/animal");
 
 exports.getAllAnimals = (req, res) => { }
 

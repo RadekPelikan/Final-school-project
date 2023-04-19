@@ -1,6 +1,6 @@
 const express = require("express");
 const router = express.Router();
-const animalsController = require("../controllers/animals");
+const animalsController = require("../controllers/animal");
 
 router.get("/", animalsController.getAllAnimals);
 router.get("/:id", animalsController.getAnimalById);

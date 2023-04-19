@@ -1,4 +1,4 @@
-
+const telephone = require('../models/telephone');
 
 exports.getAllTelephones = (req, res) => {}
 

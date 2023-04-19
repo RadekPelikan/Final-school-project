@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const telephonesSchema = mongoose.Schema({
+const telephoneSchema = mongoose.Schema({
     name: { type: String, required: true },
     brand: { type: String, required: true },
     displayType: { type: String, required: true },
@@ -9,4 +9,4 @@ const telephonesSchema = mongoose.Schema({
     color: { type: String, required: true },
 });
 
-module.exports = mongoose.model("Telephones", telephonesSchema);
+module.exports = mongoose.model("Telephone", telephoneSchema);
