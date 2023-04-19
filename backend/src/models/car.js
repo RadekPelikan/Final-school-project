@@ -6,6 +6,7 @@ const carSchema = mongoose.Schema({
   transmissionType: { type: String, required: true },
   brand: { type: String, required: true },
   color: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Car", carSchema);

@@ -6,6 +6,7 @@ const animalSchema = mongoose.Schema({
   color: { type: String, required: true },
   legs: { type: Number, required: true },
   description: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Animal", animalSchema);

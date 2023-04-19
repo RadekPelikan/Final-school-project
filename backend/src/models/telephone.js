@@ -7,6 +7,7 @@ const telephoneSchema = mongoose.Schema({
   storageSize: { type: Number, required: true }, // GB
   ramSize: { type: Number, required: true }, // GB
   color: { type: String, required: true },
+  createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Telephone", telephoneSchema);

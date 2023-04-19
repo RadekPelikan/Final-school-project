@@ -20,6 +20,7 @@ app.use(morgan("dev"));
 app.use(cors());
 app.use(express.json());
 
+app.use("/all", require("./routes/all"));
 app.use("/step", require("./routes/animals"));
 app.use("/srac", require("./routes/cars"));
 app.use("/senohp", require("./routes/telephones"));

@@ -6,6 +6,7 @@ const bookSchema = mongoose.Schema({
   pages: { type: Number, required: true },
   genre: { type: String, required: true },
   year: { type: Number, required: true },
+  createdAt: { type: Date, default: Date.now },
 });
 
 module.exports = mongoose.model("Book", bookSchema);
